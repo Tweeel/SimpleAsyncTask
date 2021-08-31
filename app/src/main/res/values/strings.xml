@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleAsyncTask</string>
+    <string name="textViewtext">I am ready to start work!</string>
 </resources>
