@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextView;
     private static final String TEXT_STATE = "currentText";
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.textView1);
+        progressBar =findViewById(R.id.determinateBar);
 
         if(savedInstanceState!=null){
             mTextView.setText(savedInstanceState.getString(TEXT_STATE));
@@ -29,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mTextView.setText(R.string.napping);
 
         // Start the AsyncTask.
-        new SimpleAsyncTask(mTextView).execute();
+        new SimpleAsyncTask(progressBar,mTextView).execute();
     }
 
     @Override
